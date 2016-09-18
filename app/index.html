@@ -55,19 +55,19 @@
 				<div class="col-sm-3 col-md-2 sidebar">
 					<ul class="nav nav-sidebar">
 						<li class="active">
-							<a href="#">首页</a>
+							<a ui-sref='index'>首页</a>
 						</li>
 						<li>
-							<a href="#">政策信息</a>
+							<a ui-sref='info'>政策信息</a>
 						</li>
 						<li>
-							<a href="#">创业信息</a>
+							<a ui-sref='chuangye'>创业信息</a>
 						</li>
 						<li>
-							<a href="#">专家信息</a>
+							<a ui-sref='zhuanjia'>专家信息</a>
 						</li>
 					</ul>
-					<ul class="nav nav-sidebar">
+					<!--<ul class="nav nav-sidebar">
 						<li>
 							<a href="">Nav item</a>
 						</li>
@@ -94,7 +94,7 @@
 						<li>
 							<a href="">Another nav item</a>
 						</li>
-					</ul>
+					</ul>-->
 				</div>
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 					<h1 class="page-header">Dashboard</h1>
@@ -123,108 +123,14 @@
 					</div>
 
 					<h2 class="sub-header">Section title</h2>
-					<div class="table-responsive">
-						<table class="table table-striped">
-							<thead>
-								<tr>
-									<th>id</th>
-									<th>title</th>
-									<th>classify</th>
-									<th>toindex</th>
-									<th>tozhuanjia</th>
-									<th>edit</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>1,001</td>
-									<td>Lorem</td>
-									<td>ipsum</td>
-									<td>dolor</td>
-									<td>sit</td>
-									<td><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">edit</button></td>
-								</tr>
-								<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-									<div class="modal-dialog">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-												<h4 class="modal-title" id="myModalLabel">Modal title</h4>
-											</div>
-											<div class="modal-body">
-												<form role="form">
-													<div class="form-group">
-														<label for="exampleInputEmail1">title</label>
-														<input type="text" class="form-control" id="exampleInputEmail1" placeholder="title">
-													</div>
-													<div class="form-group">
-														<label for="exampleInputPassword1">author</label>
-														<input type="password" class="form-control" id="exampleInputPassword1" placeholder="author">
-													</div>
-													<div class="form-group">
-														<label for="exampleInputPassword1">text</label>
-														<textarea class="form-control" id="exampleInputPassword1"></textarea>
-													</div>
-													<div class="form-group">
-														<label for="exampleInputFile">File input</label>
-														<input type="file" id="exampleInputFile">
-
-													</div>
-													<div class="checkbox">
-														<label>
-												      <select class="form-control" id="exampleInputPassword1">
-												      	<option>1111</option>
-												      	<option>2222</option>
-												      </select>
-												    </label>
-													</div>
-													<!--<button type="submit" class="btn btn-default">Submit</button>-->
-												</form>
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-												<button type="button" class="btn btn-primary">submit</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<tr>
-									<td>1,002</td>
-									<td>amet</td>
-									<td>consectetur</td>
-									<td>adipiscing</td>
-									<td>elit</td>
-									<td><span class="glyphicon glyphicon-backward"></span></td>
-								</tr>
-								<tr>
-									<td>1,003</td>
-									<td>Integer</td>
-									<td>nec</td>
-									<td>odio</td>
-									<td>Praesent</td>
-									<td><span class="glyphicon glyphicon-backward"></span></td>
-								</tr>
-
-
-							</tbody>
-						</table>
-					</div>
+					<div ui-view></div>
 				</div>
 			</div>
 		</div>
 
 
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
-    </script>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -242,6 +148,8 @@
 				<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 				<script src="scripts/ie10-viewport-bug-workaround.js"></script>
 				<script src="scripts/ie-emulation-modes-warning.js"></script>
+				<script src="scripts/controllers/ht.js"></script>
+				<script src="scripts/controllers/info.js"></script>
         <!-- endbuild -->
 </body>
 </html>
