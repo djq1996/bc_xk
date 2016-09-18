@@ -21,14 +21,14 @@ bc.config(function($stateProvider, $urlRouterProvider) {
 		
 	}).state('chuangye', {
 		url: '/chuangye',
-		templateUrl: 'views/chuangye.html'
-		
+		templateUrl: 'views/chuangye.html',
+		controller:'chuangye'
 		
 	}).state('zhuanjia', {
 		url: '/zhuanjia',
 		templateUrl: 'views/zhuanjia.html'
 		
 	})
-	$urlRouterProvider.when('', '/index');
+	$urlRouterProvider.when('', '/chuangye');
 
 })
