@@ -9,8 +9,10 @@
 		</thead>
 		<tbody>
 			<tr ng-repeat="x in data">
-				<td>{{x.id}}</td>
-				<td><img ng-src="http://123.56.227.177/bi/public/xiang_upload/images/{{x.img}}" /></td>
+
+				<td>{{$index+1}}</td>
+				<td class="img"><img ng-src="http://123.56.227.177/bi/public/xiang_upload/images/{{x.img}}" /></td>
+
 
 				<td><i class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#edit" ng-click="edit(x)"></i>　<i class="glyphicon glyphicon-remove" data-toggle="modal" ng-click="del(x)"></i></td>
 			</tr>
@@ -51,6 +53,6 @@
 
 		</tbody>
 	</table>
-	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" style="margin-left: 550px; margin-top: 30px;width: 100px;">add</button>
+	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" style="margin-left: 480px; margin-top: 30px;width: 100px;">add</button>
 	</div>
 </div>

@@ -103,3 +103,14 @@ body {
   display: inline-block;
   border-radius: 50%;
 }
+.div{
+	width:200px;
+	height:200px;
+	
+	border-radius: 50%;
+	margin-left: 20px; 
+	font-size: 60px;
+	text-align: center;
+	line-height: 200px;
+	color:#666666
+}

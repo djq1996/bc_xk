@@ -85,11 +85,11 @@
 //						$scope.images = {}
 //                      $scope.images.push(e[0].filename)
                 })
-                
+
                   $http({
               	  method:"POST",
-              	  url:"http://123.56.227.177:2503/xiang-auto",//params
-               	  data:{'img':'3e26d3b2d6e17bb01c77a51c1e9cb24a.JPG'}
+              	  url:"http://123.56.227.177:2503/xiang-auto",
+               	  data:{'img':$scope.images}
 		            }).success(function(e){
 		               console.log(e)
 		            })
