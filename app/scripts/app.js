@@ -13,7 +13,7 @@ bc.config(function($stateProvider, $urlRouterProvider) {
 	$stateProvider.state('index', {
 		url: '/index',
 		templateUrl: 'views/main.html',
-		controller:'index'
+		controller:'main'
 	}).state('info', {
 		url: '/info',
 		templateUrl: 'views/info.html',
@@ -29,6 +29,6 @@ bc.config(function($stateProvider, $urlRouterProvider) {
 		templateUrl: 'views/zhuanjia.html'
 		
 	})
-	$urlRouterProvider.when('', '/info');
+	$urlRouterProvider.when('', '/index');
 
 })

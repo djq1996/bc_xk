@@ -16,9 +16,8 @@ var server="http://123.56.227.177:2503"
                 $scope.data=e
             })
             $scope.edit=function(e){
-                $scope.isshow=true
+                
                 $scope.s=e
-
             }
             $scope.save=function(){
                 $http({
@@ -28,10 +27,6 @@ var server="http://123.56.227.177:2503"
                 }).success(function(){
 
                 })
-            }
-            $scope.add=function(){
-                $scope.isshow=true
-				
             }
             $scope.addsave=function(){
                 $http({

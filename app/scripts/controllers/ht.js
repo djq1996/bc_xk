@@ -71,16 +71,14 @@
                     params:$scope.params,
                     data:fd
                 }).success(function(e){
-//                $scope.images= e[0].filename
-$scope.images = {}
-                      $scope.images.push(e[0].filename)
+                  $scope.images= e[0].filenam
                 })
             }
             
               $http({
                 method:"POST",
-                url:"http:123.56.227.177:2503/xiang-autoplay",
-                data:$scope.images
+                url:"http://123.56.227.177:2503/xiang-auto",
+                data:{img:$scope.images}
             }).success(function(e){
                console.log(e)
             })

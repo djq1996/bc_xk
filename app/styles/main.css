@@ -81,3 +81,8 @@ body {
     border-bottom: 0;
   }
 }
+.img img{
+	width:100px;
+	height:100px;
+
+}

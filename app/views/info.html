@@ -17,7 +17,7 @@
 									<td>{{x.content}}</td>
 									<td>{{x.classify}}</td>
 									<td>sit</td>
-									<td><i class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#edit" ng-click="edit(x)"></i>　<i class="glyphicon glyphicon-remove" data-toggle="modal"  ng-click="del()"></i></td>
+									<td><i class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#edit" ng-click="edit(x)"></i>　<i class="glyphicon glyphicon-remove" data-toggle="modal"  ng-click="del(x)"></i></td>
 								</tr>
 								<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 									<div class="modal-dialog">
@@ -33,11 +33,11 @@
 														<input type="text" class="form-control" id="exampleInputEmail1" placeholder="title" ng-model="s.title">
 													</div>
 													<div class="form-group">
-														<label for="exampleInputPassword1">内容</label>
+														<label for="exampleInputPassword1">作者</label>
 														<input type="text" class="form-control" id="exampleInputPassword1" placeholder="author" ng-model="s.content">
 													</div>
 													<div class="form-group">
-														<label for="exampleInputPassword1">text</label>
+														<label for="exampleInputPassword1">内容</label>
 														<textarea class="form-control" id="exampleInputPassword1"></textarea>
 													</div>
 													<div class="form-group">
@@ -77,11 +77,11 @@
 														<input type="text" class="form-control" id="exampleInputEmail1" placeholder="title" ng-model="s.title">
 													</div>
 													<div class="form-group">
-														<label for="exampleInputPassword1">内容</label>
+														<label for="exampleInputPassword1">作者</label>
 														<input type="text" class="form-control" id="exampleInputPassword1" placeholder="author" ng-model="s.content">
 													</div>
 													<div class="form-group">
-														<label for="exampleInputPassword1">text</label>
+														<label for="exampleInputPassword1">内容</label>
 														<textarea class="form-control" id="exampleInputPassword1"></textarea>
 													</div>
 													<div class="form-group">
@@ -102,7 +102,7 @@
 											</div>
 											<div class="modal-footer">
 												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-												<button type="button" class="btn btn-primary" ng-click="addsave()">submit</button>
+												<button type="button" class="btn btn-primary" ng-click="save()">submit</button>
 											</div>
 										</div>
 									</div>
