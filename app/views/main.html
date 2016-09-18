@@ -4,20 +4,15 @@
 			<tr>
 				<th>id</th>
 				<th>image</th>
-				<th>classify</th>
-				<th>toindex</th>
-				<th>tozhuanjia</th>
 				<th>edit</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr ng-repeat="x in data">
-				<td>{{$index+1}}</td>
-				<td>{{x.filename}}</td>
-				<td>{{x.classify}}</td>
-				<td>{{x.classify}}</td>
-				<td>{{x.classify}}</td>
-				<td><i class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#edit" ng-click="edit(x)"></i>　<i class="glyphicon glyphicon-remove" data-toggle="modal"  ng-click="del()"></i></td>
+				<td>{{x.id}}</td>
+				<td><img ng-src="http://123.56.227.177/bi/public/xiang_upload/images/{{x.img}}" /></td>
+
+				<td><i class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#edit" ng-click="edit(x)"></i>　<i class="glyphicon glyphicon-remove" data-toggle="modal" ng-click="del(x)"></i></td>
 			</tr>
 			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog">
@@ -37,11 +32,11 @@
 									</div>
 									<div class="checkbox">
 										<label>
-				      <!--<select class="form-control" id="exampleInputPassword1">
-				      	<option>政策信息</option>
-				      	<option>2222</option>
-				      </select>-->
-				    </label>
+									      <!--<select class="form-control" id="exampleInputPassword1">
+									      	<option>政策信息</option>
+									      	<option>2222</option>
+									      </select>-->
+									    </label>
 									</div>
 									<!--<button type="submit" class="btn btn-default">Submit</button>-->
 							</form>
