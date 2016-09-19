@@ -28,7 +28,12 @@ var server="http://123.56.227.177:2503"
 
                 })
             }
+            $scope.clear=function(){
+            	$scope.s={};
+            }
             $scope.addsave=function(){
+            	$scope.s.content=$(".summernote").summernote("code");
+            	alert($scope.s.content)
                 $http({
                     url:server+"/xiang-chuangye/",
                     method:"POST",
@@ -50,7 +55,8 @@ var server="http://123.56.227.177:2503"
             $scope.updata.img=""
             $scope.save=function(){
                 console.log($(".form-control").summernote("code"))
-                $scope.updata.content=$(".form-control").summernote("code")
+                $scope.updata.content=$(".summernote").summernote("code")
+//              alert($(".summernote").summernote("code"))
 
                 $http({
                     url:"http://123.56.227.177:2503/xiang-chuangye",
