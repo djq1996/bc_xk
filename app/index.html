@@ -17,7 +17,7 @@
     <link href="styles/dashboard.css" rel="stylesheet">
     <!-- endbuild -->
   </head>
-  <body ng-app="bcXkApp">
+  <body ng-app="bcXkApp" ng-controller="index">
    		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 			<div class="container-fluid">
 				<div class="navbar-header">
@@ -55,47 +55,10 @@
 			<div class="row">
 				<div class="col-sm-3 col-md-2 sidebar">
 					<ul class="nav nav-sidebar">
-						<li class="active">
-							<a href="javascript:;" ui-sref='index'>首页</a>
-						</li>
-						<li>
-							<a href="javascript:;" ui-sref='info'>政策信息</a>
-						</li>
-						<li>
-							<a href="javascript:;" ui-sref='chuangye'>创业信息</a>
-						</li>
-						<li>
-							<a href="javascript:;" ui-sref='zhuanjia'>专家信息</a>
+						<li ng-repeat="a in arr" ng-click="clickFn($index)" ng-class="$index==BtnIndex?'active':''">
+							<a href="javascript:;" ui-sref='{{a.sref}}' ng-bind="a.txt"></a>
 						</li>
 					</ul>
-					<!--<ul class="nav nav-sidebar">
-						<li>
-							<a href="">Nav item</a>
-						</li>
-						<li>
-							<a href="">Nav item again</a>
-						</li>
-						<li>
-							<a href="">One more nav</a>
-						</li>
-						<li>
-							<a href="">Another nav item</a>
-						</li>
-						<li>
-							<a href="">More navigation</a>
-						</li>
-					</ul>
-					<ul class="nav nav-sidebar">
-						<li>
-							<a href="">Nav item again</a>
-						</li>
-						<li>
-							<a href="">One more nav</a>
-						</li>
-						<li>
-							<a href="">Another nav item</a>
-						</li>
-					</ul>-->
 				</div>
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
