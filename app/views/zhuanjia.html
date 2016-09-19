@@ -3,7 +3,7 @@
 							<thead>
 								<tr>
 									<th>id</th>
-									<th>title</th>
+									<th>name</th>
 									<th>content</th>
 									<th>classify</th>
 									<th>toindex</th>
@@ -13,7 +13,7 @@
 							<tbody>
 								<tr ng-repeat="x in data">
 									<td>{{$index+1}}</td>
-									<td>{{x.title}}</td>
+									<td>{{x.name}}</td>
 									<td>{{x.content | limitTo:'10' }}{{x.content.length>10?'...':''}}</td>
 									<td>{{x.classify}}</td>
 									<td>{{x.toindex}}</td>
@@ -29,8 +29,8 @@
 											<div class="modal-body">
 												<form role="form">
 													<div class="form-group">
-														<label for="exampleInputEmail1">标题</label>
-														<input type="text" class="form-control" id="exampleInputEmail1" placeholder="title" ng-model="s.title">
+														<label for="exampleInputEmail1">名字</label>
+														<input type="text" class="form-control" id="exampleInputEmail1" placeholder="title" ng-model="name">
 													</div>
 													
 													<div class="form-group">

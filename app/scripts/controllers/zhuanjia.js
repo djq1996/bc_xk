@@ -25,9 +25,11 @@ var server="http://123.56.227.177:2503";
             $scope.edit=function(e){
                 
                 $scope.s=e
+                 var content=$scope.s.content;
+               	 $('.summernotes').summernote('code',content)
             }
             $scope.save=function(){
-            	$(".summernote").summernote("dddd")
+            	$scope.s.content = (".summernote").summernote("code")
                 $http({
                     method:"PUT",
                     url:server+"/xiang-zhuanjia/"+$scope.s.id,

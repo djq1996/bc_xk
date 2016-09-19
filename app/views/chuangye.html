@@ -14,7 +14,7 @@
 								<tr ng-repeat="x in data">
 									<td>{{$index+1}}</td>
 									<td>{{x.title}}</td>
-									<td>{{x.content | limitTo:'10' }}{{x.content.length>10?'...':''}}</td>
+									<td>{{x.content | limitTo:'15' }}{{x.content.length>10?'...':''}}</td>
 									<td>{{x.classify}}</td>
 									<td>{{x.toindex}}</td>
 									<td><i class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#edit" ng-click="edit(x)"></i>　<i class="glyphicon glyphicon-remove" data-toggle="modal"  ng-click="del(x)"></i></td>
@@ -35,7 +35,7 @@
 													
 													<div class="form-group">
 														<label for="exampleInputPassword1">内容</label>
-														<textarea class="form-control summernotes" id="exampleInputPassword1" ng-model="s.content"></textarea>
+														<textarea class="form-control summernotes" id="exampleInputPassword1" ></textarea>
 													</div>
 													<div class="form-group">
 														<label for="exampleInputFile">上传图片</label>
