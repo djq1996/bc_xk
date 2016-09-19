@@ -4,52 +4,51 @@
 								<tr>
 									<th>id</th>
 									<th>title</th>
+									<th>content</th>
 									<th>classify</th>
 									<th>toindex</th>
-									<th>tozhuanjia</th>
 									<th>edit</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>zhuanjia</td>
-									<td>Lorem</td>
-									<td>ipsum</td>
-									<td>dolor</td>
-									<td>sit</td>
-									<td><i class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#myModal"></i>　<i class="glyphicon glyphicon-remove" data-toggle="modal" data-target="#myModal"></i></td>
+								<tr ng-repeat="x in data">
+									<td>{{$index+1}}</td>
+									<td>{{x.title}}</td>
+									<td>{{x.content | limitTo:'10' }}{{x.content.length>10?'...':''}}</td>
+									<td>{{x.classify}}</td>
+									<td>{{x.toindex}}</td>
+									<td><i class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#edit" ng-click="edit(x)"></i>　<i class="glyphicon glyphicon-remove" data-toggle="modal"  ng-click="del(x)"></i></td>
 								</tr>
-								<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 									<div class="modal-dialog">
 										<div class="modal-content">
 											<div class="modal-header">
 												<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-												<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+												<h4 class="modal-title" id="myModalLabel">添加信息</h4>
 											</div>
 											<div class="modal-body">
 												<form role="form">
 													<div class="form-group">
-														<label for="exampleInputEmail1">title</label>
-														<input type="text" class="form-control" id="exampleInputEmail1" placeholder="title">
+														<label for="exampleInputEmail1">标题</label>
+														<input type="text" class="form-control" id="exampleInputEmail1" placeholder="title" ng-model="s.title">
+													</div>
+													
+													<div class="form-group">
+														<label for="exampleInputPassword1">内容</label>
+														<textarea class="form-control summernotes" id="exampleInputPassword1" ng-model="s.content"></textarea>
 													</div>
 													<div class="form-group">
-														<label for="exampleInputPassword1">author</label>
-														<input type="password" class="form-control" id="exampleInputPassword1" placeholder="author">
-													</div>
-													<div class="form-group">
-														<label for="exampleInputPassword1">text</label>
-														<textarea class="form-control" id="exampleInputPassword1"></textarea>
-													</div>
-													<div class="form-group">
-														<label for="exampleInputFile">File input</label>
-														<input type="file" id="exampleInputFile">
+														<label for="exampleInputFile">上传图片</label>
+														<input type="file" id="exampleInputFile"><br />
+														<input type="button" class="btn btn-default" id="exampleInputPassword1"  ng-click="uploadFiles()" value="确认图片">
 
 													</div>
 													<div class="checkbox">
 														<label>
-												      <select class="form-control" id="exampleInputPassword1">
-												      	<option>1111</option>
-												      	<option>2222</option>
+												      <select class="form-control" id="exampleInputPassword1" ng-model="s.classify">
+												      	<option selected="selected">选择文章分类</option>
+												      	<option value="0">政策信息</option>
+												      	<option value="1">就业信息</option>
 												      </select>
 												    </label>
 													</div>
@@ -58,22 +57,64 @@
 											</div>
 											<div class="modal-footer">
 												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-												<button type="button" class="btn btn-primary">submit</button>
+												<button type="button" class="btn btn-primary" ng-click="save()">submit</button>
 											</div>
 										</div>
 									</div>
 								</div>
-								<tr>
-									<td>1,002</td>
-									<td>amet</td>
-									<td>consectetur</td>
-									<td>adipiscing</td>
-									<td>elit</td>
-									<td><i class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#myModal"></i>　<i class="glyphicon glyphicon-remove" data-toggle="modal" data-target="#myModal"></i></td>
-								</tr>
+
 								
-
-
 							</tbody>
 						</table>
+						<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" style="margin-left: 550px; margin-top: 30px;width: 100px;" ng-click="clear()">add</button>
+								<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+												<h4 class="modal-title" id="myModalLabel">添加信息</h4>
+											</div>
+											<div class="modal-body">
+												<form role="form">
+													<div class="form-group">
+														<label for="exampleInputEmail1">标题</label>
+														<input type="text" class="form-control" id="exampleInputEmail1" placeholder="title" ng-model="s.title">
+													</div>
+													
+													<div class="form-group">
+														<label for="exampleInputPassword1">内容</label>
+														<textarea class="form-control summernote" id="exampleInputPassword1"></textarea>
+													</div>
+													
+													<div class="form-group">
+														<label for="exampleInputFile">上传图片</label>
+														<input type="file"  id="exampleInputFile" onchange="setFiles(this)"><br />
+														<input type="button" class="btn btn-default" id="exampleInputPassword1"  ng-click="uploadFiles()" value="确认图片">
+													</div>
+													<div class="checkbox">
+														<label>
+												      <select class="form-control" id="exampleInputPassword1" ng-model="s.classify">
+												      	<option selected="selected">选择文章分类</option>
+												      	<option value="0">政策信息</option>
+												      	<option value="1">就业信息</option>
+												      </select>
+												    </label>
+													</div>
+													<div>
+														是否banner显示 <input type="checkbox" value="" ng-model="s.toindex" />
+													</div>
+													<!--<button type="submit" class="btn btn-default">Submit</button>-->
+												</form>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+												<button type="button" class="btn btn-primary" ng-click="addsave()">submit</button>
+											</div>
+										</div>
+									</div>
+								</div>
 					</div>
+	<script>
+		$('.summernotes').summernote()//save
+        $(".summernote").summernote()//addsave
+    </script>

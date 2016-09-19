@@ -26,7 +26,8 @@ bc.config(function($stateProvider, $urlRouterProvider) {
 		
 	}).state('zhuanjia', {
 		url: '/zhuanjia',
-		templateUrl: 'views/zhuanjia.html'
+		templateUrl: 'views/zhuanjia.html',
+		controller:'zhuanjia'
 		
 	})
 	$urlRouterProvider.when('', '/chuangye');
