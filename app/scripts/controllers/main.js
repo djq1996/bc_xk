@@ -6,13 +6,15 @@
                 files.push(element.files[i]);
             }
         }
-        var server="http://123.56.227.177:2503"
+        var server="http://123.56.227.177:2503";
+        
         bc.controller("main",function($scope,$http){
+        	$scope.images = '';
             $http({
                 method:"GET",
                 url:server+"/xiang-auto/"
             }).success(function(e){
-            	debugger
+            	//debugger
                 $scope.data=e
             })
             $scope.edit=function(e){
@@ -22,7 +24,7 @@
 
             }
             $scope.save=function(){
-            	alert(123)
+            	//alert(123)
                 $http({
                     method:"PUT",
                     url:server+"/xiang-auto/"+$scope.s.id,
@@ -79,20 +81,20 @@
                 	 console.log(e)
                 	
               		  $scope.images= e[0].filename;
-              		   debugger
+              		  // debugger
               		  console.log( $scope.images)
-              		  
+              		    $http({
+			              	  method:"POST",
+			              	  url:"http://123.56.227.177:2503/xiang-auto",
+			               	  data:{'img':$scope.images}
+					            }).success(function(e){
+					               console.log(e)
+		           		 })
 //						$scope.images = {}
 //                      $scope.images.push(e[0].filename)
                 })
 
-                  $http({
-              	  method:"POST",
-              	  url:"http://123.56.227.177:2503/xiang-auto",
-               	  data:{'img':$scope.images}
-		            }).success(function(e){
-		               console.log(e)
-		            })
+                
             
             }
 

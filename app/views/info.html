@@ -6,20 +6,20 @@
 									<th>title</th>
 									<th>content</th>
 									<th>classify</th>
-									<th>tozhuanjia</th>
+									<th>toindex</th>
 									<th>edit</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr ng-repeat="x in data">
-									<td>{{x.id}}</td>
+									<td>{{$index+1}}</td>
 									<td>{{x.title}}</td>
-									<td>{{x.content}}</td>
+									<td>{{x.content | limitTo:'10' }}{{x.content.length>10?'...':''}}</td>
 									<td>{{x.classify}}</td>
-									<td>sit</td>
+									<td>{{x.toindex}}</td>
 									<td><i class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#edit" ng-click="edit(x)"></i>　<i class="glyphicon glyphicon-remove" data-toggle="modal"  ng-click="del(x)"></i></td>
 								</tr>
-														<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 									<div class="modal-dialog">
 										<div class="modal-content">
 											<div class="modal-header">
@@ -32,26 +32,28 @@
 														<label for="exampleInputEmail1">标题</label>
 														<input type="text" class="form-control" id="exampleInputEmail1" placeholder="title" ng-model="s.title">
 													</div>
-													<div class="form-group">
-														<label for="exampleInputPassword1">作者</label>
-														<input type="text" class="form-control" id="exampleInputPassword1" placeholder="author" ng-model="s.content">
-													</div>
+													
 													<div class="form-group">
 														<label for="exampleInputPassword1">内容</label>
-														<textarea class="form-control" id="exampleInputPassword1"></textarea>
+														<textarea class="form-control summernotes" id="exampleInputPassword1" ng-model="s.content"></textarea>
 													</div>
 													<div class="form-group">
 														<label for="exampleInputFile">上传图片</label>
-														<input type="file" id="exampleInputFile">
+														<input type="file" id="exampleInputFile"><br />
+														<input type="button" class="btn btn-default" id="exampleInputPassword1"  ng-click="uploadFiles()" value="确认图片">
 
 													</div>
 													<div class="checkbox">
-														<label>
+														<label></label>
 												      <select class="form-control" id="exampleInputPassword1" ng-model="s.classify">
+												      	<option selected="selected">选择文章分类</option>
 												      	<option value="0">政策信息</option>
 												      	<option value="1">就业信息</option>
 												      </select>
-												    </label>
+												    
+													</div>
+													<div>
+														是否banner显示 <input type="checkbox" value="" ng-model="s.toindex" />
 													</div>
 													<!--<button type="submit" class="btn btn-default">Submit</button>-->
 												</form>
@@ -67,7 +69,7 @@
 								
 							</tbody>
 						</table>
-						<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" style="margin-left: 550px; margin-top: 30px;width: 100px;">add</button>
+						<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" style="margin-left: 550px; margin-top: 30px;width: 100px;" ng-click="clear()">add</button>
 								<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -81,26 +83,28 @@
 														<label for="exampleInputEmail1">标题</label>
 														<input type="text" class="form-control" id="exampleInputEmail1" placeholder="title" ng-model="s.title">
 													</div>
-													<div class="form-group">
-														<label for="exampleInputPassword1">作者</label>
-														<input type="text" class="form-control" id="exampleInputPassword1" placeholder="author" ng-model="s.content">
-													</div>
+													
 													<div class="form-group">
 														<label for="exampleInputPassword1">内容</label>
-														<textarea class="form-control" id="exampleInputPassword1"></textarea>
+														<textarea class="form-control summernote" id="exampleInputPassword1"></textarea>
 													</div>
+													
 													<div class="form-group">
 														<label for="exampleInputFile">上传图片</label>
-														<input type="file" id="exampleInputFile">
-
+														<input type="file"  id="exampleInputFile" onchange="setFiles(this)"><br />
+														<input type="button" class="btn btn-default" id="exampleInputPassword1"  ng-click="uploadFiles()" value="确认图片">
 													</div>
 													<div class="checkbox">
-														<label>
+													
 												      <select class="form-control" id="exampleInputPassword1" ng-model="s.classify">
+												      	<option selected="selected">选择文章分类</option>
 												      	<option value="0">政策信息</option>
 												      	<option value="1">就业信息</option>
 												      </select>
-												    </label>
+												    
+													</div>
+													<div>
+														是否banner显示 <input type="checkbox" value="" ng-model="s.toindex" />
 													</div>
 													<!--<button type="submit" class="btn btn-default">Submit</button>-->
 												</form>
@@ -113,3 +117,7 @@
 									</div>
 								</div>
 					</div>
+	<script>
+		$('.summernotes').summernote()//save
+        $(".summernote").summernote()//addsave
+    </script>

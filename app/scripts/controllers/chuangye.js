@@ -7,7 +7,14 @@
  * # MainCtrl
  * Controller of the bcXkApp
  */
-var server="http://123.56.227.177:2503"
+var server="http://123.56.227.177:2503";
+  		var files=[]
+        var setFiles=function(element){
+            files = [];
+            for (var i = 0; i < element.files.length; i++) {
+                files.push(element.files[i]);
+            }
+        }
        bc.controller("chuangye",function($scope,$http){
             $http({
                 method:"GET",
@@ -20,6 +27,7 @@ var server="http://123.56.227.177:2503"
                 $scope.s=e
             }
             $scope.save=function(){
+            	$(".summernote").summernote("dddd")
                 $http({
                     method:"PUT",
                     url:server+"/xiang-chuangye/"+$scope.s.id,
@@ -31,17 +39,7 @@ var server="http://123.56.227.177:2503"
             $scope.clear=function(){
             	$scope.s={};
             }
-            $scope.addsave=function(){
-            	$scope.s.content=$(".summernote").summernote("code");
-            	alert($scope.s.content)
-                $http({
-                    url:server+"/xiang-chuangye/",
-                    method:"POST",
-                    data:$scope.s
-                }).success(function(){
-                    $scope.data.push($scope.s)
-                })
-            }
+          
             $scope.del=function(e){
                 $http({
                     url:server+"/xiang-chuangye/"+ e.id,
@@ -51,19 +49,23 @@ var server="http://123.56.227.177:2503"
                 })
             }
             //上传图片
-            $scope.updata={}
-            $scope.updata.img=""
-            $scope.save=function(){
-                console.log($(".form-control").summernote("code"))
-                $scope.updata.content=$(".summernote").summernote("code")
+            $scope.s={}
+            $scope.s.img=""
+            $scope.addsave=function(){
+                console.log($(".summernote").summernote("code"))
+                $scope.s.content=$(".summernote").summernote("code")
 //              alert($(".summernote").summernote("code"))
-
+				if($scope.s.toindex==false){
+					$scope.s.toindex=0
+				}else{
+					$scope.s.toindex=1
+				}
                 $http({
-                    url:"http://123.56.227.177:2503/xiang-chuangye",
+                    url:server+"/xiang-chuangye",
                     method:"post",
-                    data:$scope.updata
+                    data:$scope.s
                 }).success(function(){
-
+ 					$scope.data.push($scope.s)
                 })
             }
 
@@ -85,7 +87,7 @@ var server="http://123.56.227.177:2503"
                     data:fd
                 }).success(function(e){
                     console.log(e)
-                    $scope.updata.img= e[0].filename
+                    $scope.s.img= e[0].filename
                 })
             }
         })
