@@ -40,6 +40,7 @@ var server="http://123.56.227.177:2503";
             }
             $scope.clear=function(){
             	$scope.s={};
+            	 $scope.s.content=$(".summernote").summernote("code",'')
             }
           
             $scope.del=function(e){

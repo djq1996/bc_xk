@@ -26,7 +26,8 @@ var server="http://123.56.227.177:2503";
                 
                 $scope.s=e
                  var content=$scope.s.content;
-               	 $('.summernotes').summernote('code',content)
+               	 $('.summernotes').summernote('code',content);
+               	 
             }
             $scope.save=function(){
             	$scope.s.content = $(".summernotes").summernote("code")
@@ -40,6 +41,7 @@ var server="http://123.56.227.177:2503";
             }
             $scope.clear=function(){
             	$scope.s={};
+            	 $scope.s.content=$(".summernote").summernote("code",'')
             }
           
             $scope.del=function(e){

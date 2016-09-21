@@ -9,16 +9,8 @@
  * Main module of the application.
  */
 var bc = angular.module('bcXkApp', ['ui.router']);
-bc.controller('index',function($scope,$http){//政策信息创业信息专家信息
-//	<li>
-//							<a href="javascript:;" ui-sref='info'>政策信息</a>
-//						</li>
-//						<li>
-//							<a href="javascript:;" ui-sref='chuangye'>创业信息</a>
-//						</li>
-//						<li>
-//							<a href="javascript:;" ui-sref='zhuanjia'>专家信息</a>
-//						</li>
+bc.controller('index',function($scope,$http){
+
 		$scope.arr=[
 		{txt:'首页',sref:'index'},
 		{txt:'政策信息',sref:'info'},
@@ -52,6 +44,6 @@ bc.config(function($stateProvider, $urlRouterProvider) {
 		controller:'zhuanjia'
 		
 	})
-	$urlRouterProvider.when('', '/chuangye');
+	$urlRouterProvider.when('', '/index');
 
 })
