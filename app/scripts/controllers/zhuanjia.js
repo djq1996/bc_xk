@@ -40,12 +40,14 @@ var server="http://123.56.227.177:2503";
             }
             $scope.clear=function(){
             	$scope.s={};
+            	 $scope.s.content=$(".summernote").summernote("code",'')
             }
           
             $scope.del=function(e){
                 $http({
                     url:server+"/xiang-zhuanjia/"+ e.id,
-                    method:"DELETE"
+                    method:"DELETE",
+                    
                 }).success(function(){
                     $scope.data.splice($scope.data.indexOf(e),1)
                 })
